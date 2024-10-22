@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Su</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ffafbd, #ffc3a0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #ff6f91;
+            font-size: 2rem;
+        }
+
+        p {
+            color: #ff85a1;
+            font-size: 1rem;
+        }
+
+        .image-slider {
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .compliment {
+            color: #ff85a1;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #ff6f91;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        button:hover {
+            background-color: #ff85a1;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            .container {
+                padding: 10px;
+                max-width: 90%;
+            }
+
+            button {
+                padding: 6px 12px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday Su!</h1>
+        <p>Wishing you lots of love and happiness on your special day!</p>
+
+        <!-- Image Slider -->
+        <div class="image-slider">
+            <div class="slide active">
+                <img src="su1.jpg" alt="Su Image 1" style="width: 100%; border-radius: 10px;">
+                <p class="compliment">Happy Birthday Su💜 I know tum gussa ho</p>
+            </div>
+            <div class="slide">
+                <img src="su2.jpg" alt="Su Image 2" style="width: 50%; border-radius: 10px;">
+                <p class="compliment">Lekin Ab ho gya na😔 Ab to Wapas aajaow</p>
+            </div>
+            <div class="slide">
+                <img src="su3.jpg" alt="Su Image 3" style="width: 50%; border-radius: 10px;">
+                <p class="compliment">Bhagwan tumhe hamesha khush rakhe😊. Pta nhi yeh mess tum padh v rhe ki nhi</p>
+            </div>
+            <div class="slide">
+                <img src="su4.jpg" alt="Su Image 4" style="width: 80%; border-radius: 10px;">
+                <p class="compliment">Enjoy your day bestu🎂🎉💖.</p>
+            </div>
+        </div>
+
+        <button id="prev">Previous</button>
+        <button id="next">Next</button>
+
+        <button id="play-song">Play Song</button>
+        <button id="show-message">Special Message</button>
+    </div>
+
+    <audio id="birthday-song" src="su.mp3" preload="auto"></audio>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        const song = document.getElementById('birthday-song');
+
+        // Function to play the song
+        function playSong() {
+            song.currentTime = 0; // Reset to start
+            song.play();
+        }
+
+        document.getElementById('play-song').addEventListener('click', function() {
+            playSong(); // Play the song when the button is clicked
+        });
+
+        document.getElementById('next').addEventListener('click', function() {
+            changeSlide(currentSlide + 1);
+        });
+
+        document.getElementById('prev').addEventListener('click', function() {
+            changeSlide(currentSlide - 1);
+        });
+
+        document.getElementById('show-message').addEventListener('click', function() {
+            window.location.href = 'special_message.html'; // Redirect to new page
+        });
+
+        function changeSlide(newSlide) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (newSlide + slides.length) % slides.length; // Keep the slide index in bounds
+            slides[currentSlide].classList.add('active');
+        }
+    </script>
+</body>
+</html>
