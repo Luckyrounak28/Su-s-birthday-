@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Su</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fecfef); /* Romantic gradient */
+            color: white;
+        }
+
+        .splash-container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="splash-container">
+        <h1>Happy Birthday Su!</h1>
+        <p>Wishing you a day filled with love and joy 💖</p>
+    </div>
+
+    <script>
+        // Redirect to main.html after 3 seconds
+        setTimeout(function() {
+            window.location.href = 'main.html';
+        }, 3000);
+    </script>
+</body>
+</html>
